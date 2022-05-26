@@ -55,7 +55,7 @@ function cacheFunction(cb) {
 const obj = {};
  return function(arg){
    if (obj.hasOwnProperty(arg)) {
-    return obj[arg];//se usa el bracket porque no conozco el valor de arg?
+    return obj[arg];//se usa el bracket porque el valor de arg puede ser variable no tengo aún el nombre literal del argumento
     } else {
       obj[arg] = cb(arg);
       return obj[arg];
@@ -101,7 +101,7 @@ let getNombreAlumno = getNombre.bind(alumno);
 function crearCadena(delimitadorIzquierda, delimitadorDerecha, cadena) {
   return delimitadorIzquierda + cadena + delimitadorDerecha;
 }
-let textoAsteriscos = crearCadena.bind(crearCadena,"*","*");
+let textoAsteriscos = crearCadena.bind(crearCadena,"*","*"); //acá ojo en vez de crearCadena en el paréntesis lo que se usa es poner this
 let textoGuiones = crearCadena.bind(crearCadena, "-","-");
 let textoUnderscore = crearCadena.bind(crearCadena,"_","_");
 
